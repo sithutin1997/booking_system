@@ -1,0 +1,151 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    display: flex;
+}
+
+.container > .left-side {
+ background-color: #46529D;
+ width: 40%;
+}
+
+.container > .right-side {
+    background-color: #FFFFFF;
+    width: 60%;
+}
+
+.room-number {
+    background-color: #2EBAEE;
+    float: right;
+    height: 150px;
+    width: 80%;
+}
+
+.room-number > span {
+    font-family: 'Roboto';
+    color: #FFFFFF;
+    margin: 56px 0px 0px 48px;
+    float: left;
+    font-size: 54px;
+    font-weight: 700;
+}
+
+.upcoming {
+    display: block;
+    margin-top: 300px;
+    margin-left: 150px;
+    background-color: #46529D;
+    text-align: left;
+    margin-bottom: 100px;
+}
+.upcoming-text{
+    font-family: 'Lato';
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.upcoming-day {
+    font-family: 'Lato';
+    font-size: 64px;
+    font-weight: 300;
+    color: #FFFFFF;
+    opacity: 50%;
+    margin-top: 50px;
+}
+
+.upcoming-month {
+    font-family: 'Lato';
+    font-size: 64px;
+    font-weight: 100;
+    font-style: normal;
+    color: #FFFFFF;
+    margin-top: 20px
+}
+
+.current-booking {
+    margin-top: 90px;
+}
+.time {
+    font-family: 'Roboto';
+    color: #FFFFFF;
+    font-size: 16px;
+    opacity: 50%;
+    font-weight: 400;
+    line-height: 100%;
+    margin-top: 20px;
+}
+
+.title {
+    font-family: 'Roboto';
+    font-size: 20px;
+    color: #FFFFFF;
+    font-weight: 400;
+    line-height: 100%;
+    margin-top: 20px;
+}
+.time-menu {
+    display: flex;
+    background-color: #EFEEEC;
+    height: 150px;
+    align-content: left;
+    gap: 75px;
+}
+
+.time-menu > span {
+    font-family: 'Roboto';
+    font-size: 24px;
+    font-weight: 400;
+    color: #000000;
+    margin-left: 65px;
+    margin-top: 70px;
+    font-variant: small-caps;
+}
+.booking-date {
+    text-align: left;
+    box-sizing: border-box;
+    margin-top: 50px;
+    height: 40px;
+    background-color: #F7F7F7;
+    z-index: 3;
+}
+
+.booking-date > p {
+    margin-left: 60px;
+    margin-top: 50px;
+    padding-top: 10px;
+    font-family: 'Roboto';
+    font-size: 18px;
+}
+.upcoming-meeting {
+    background-color: #4D59A1;
+    text-align: left;
+}
+.upcoming-meeting > div {
+    margin-top: 20px;
+    padding-top: 5px;
+    margin-left: 150px;
+    margin-bottom: 30px;
+}
+
+.booking-time {
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 60px;
+}
+.booking-time > .duration{
+    font-family: 'Roboto';
+    font-size: 16px;
+    opacity: 50%;
+}
+.booking-time > .title{
+    font-family: 'Roboto';
+    font-size: 16px;
+    color: #000000;
+}
