@@ -52,22 +52,22 @@ const bookingData = [
   {
     "id": 8,
     "roomId": "A101",
-    "startTime": "2022-5-29 14:00:00",
-    "endTime": "2022-10-30 11:00:00",
+    "startTime": "2019-5-29 14:00:00",
+    "endTime": "2019-10-30 11:00:00",
     "title": "Raimonland project"
   },
   {
     "id": 9,
     "roomId": "A102",
-    "startTime": "2022-05-29 14:00:00",
-    "endTime": "2022-10-30 11:00:00",
+    "startTime": "2019-05-29 14:00:00",
+    "endTime": "2019-10-30 11:00:00",
     "title": "Management Meeting"
   },
   {
     "id": 10,
     "roomId": "A101",
-    "startTime": "2022-05-29 14:33:00",
-    "endTime": "2022-10-30 11:00:00",
+    "startTime": "2019-05-29 14:33:00",
+    "endTime": "2019-10-30 11:00:00",
     "title": "3-day workshop Corgi costume"
   }
 ];
@@ -153,21 +153,26 @@ const renderBookings = ( roomId ) => {
   let upcomingMeetingBooking = '';
   let bookingRightSide = '';
   const bookingList = getBookingsForWeek(roomId);
-  const currentBooking = bookingList.shift();
-  // ----------------------------- current booking of left side-------------------------------
-  const upcomingDate = new Date(currentBooking.startTime);
-  const currentMonth = new Intl.DateTimeFormat('en-US', options).format(upcomingDate);
-  const currentDay = upcomingDate.toLocaleString("default", { weekday: "short" })
-  const currentDayNumber = upcomingDate.getDate();
-  const start = new Date(currentBooking.startTime);
-  const end = new Date(currentBooking.endTime);
-  const htmlCurrentBooking = `<p class="upcoming-text">Upcoming</p>
-                              <p class="upcoming-day">${currentDay}</p>
-                              <p class="upcoming-month">${currentDayNumber} ${currentMonth}</p>
-                              <div class="current-booking">
-                                <p class="time">${start.getHours()+":"+start.getMinutes()} - ${end.getHours()+":"+end.getMinutes()}</p>
-                                <p class="title">${currentBooking.title}</p>
-                              </div>`;
+  if(bookingList.length > 0 ) {
+    const currentBooking = bookingList.shift();
+    // ----------------------------- current booking of left side-------------------------------
+    const upcomingDate = new Date(currentBooking.startTime);
+    const currentMonth = new Intl.DateTimeFormat('en-US', options).format(upcomingDate);
+    const currentDay = upcomingDate.toLocaleString("default", { weekday: "short" })
+    const currentDayNumber = upcomingDate.getDate();
+    const start = new Date(currentBooking.startTime);
+    const end = new Date(currentBooking.endTime);
+    const htmlCurrentBooking = `<p class="upcoming-text">Upcoming</p>
+                                <p class="upcoming-day">${currentDay}</p>
+                                <p class="upcoming-month">${currentDayNumber} ${currentMonth}</p>
+                                <div class="current-booking">
+                                  <p class="time">${start.getHours()+":"+start.getMinutes()} - ${end.getHours()+":"+end.getMinutes()}</p>
+                                  <p class="title">${currentBooking.title}</p>
+                                </div>`;
+    // -------------------------- render recent booking ----------------------------
+    const upcomingQuery = document.querySelector('.upcoming');
+    upcomingQuery.innerHTML = htmlCurrentBooking;
+  }
 
   // ---------------------------- upcoming Bookings of left side------------------------------
   if(bookingList.length > 0) {
@@ -202,9 +207,6 @@ const renderBookings = ( roomId ) => {
         bookingRightSide +=html;
     })
   }
-  // -------------------------- render recent booking ----------------------------
-  const upcomingQuery = document.querySelector('.upcoming');
-  upcomingQuery.innerHTML = htmlCurrentBooking;
   // -------------------------- render next bookings -----------------------------
   const upcomingMeetingQuery = document.querySelector('.upcoming-meeting');
   upcomingMeetingQuery.innerHTML = upcomingMeetingBooking;
